@@ -272,6 +272,23 @@
 <body>
   <div class="container">
     <header>
+  // Swap inline SVG placeholder with the real image after first paint to keep LCP fast
+  (function(){
+    if (!window.requestAnimationFrame) return;
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        var img = document.getElementById('lcp-placeholder');
+        if (!img) return;
+        var real = new Image();
+        real.src = './assets/images/user-barno.png';
+        real.width = img.width || 214;
+        real.height = img.height || 222;
+        real.decoding = 'async';
+        real.loading = 'eager';
+        real.onload = function(){ img.replaceWith(real); };
+      });
+    });
+  })();
       <nav class="navbar">
         <div class="navbar-item__left">
           <svg width="20" height="20" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
