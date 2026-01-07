@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./fonts/big-shoulder/stylesheet.css">
+  <style>
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      line-height: 100%;
+      background: #070707;
+      color: white;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 25px;
+      margin-bottom: 27px;
+      background: #2E2E2E;
+      box-shadow: 0px 3px 4.6px 0px #00000017;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    .navbar-item__left {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .navbar-item__status {
+      color: #FFEDAA;
+    }
+
+    .hero-title {
+      font-family: 'Big Shoulders';
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 120%;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-title__span {
+      display: inline-block;
+      padding: 5px 0px;
+      font-size: 42px;
+      background: linear-gradient(90deg, #FFF4C6 0%, #FFCE43 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-main-box {
+      position: relative;
+    }
+
+    .hero-main-box__img {
+      width: 100%;
+      max-width: 214px;
+      height: 222px;
+      object-fit: contain;
+      /* margin: auto 0; */
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    .hero-main-box__span {
+      display: block;
+      background: #FFFFFF99;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -35%);
+      z-index: -1;
+      width: 214px;
+      height: 222px;
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+
+    .hero-banner-box {
+      width: 100%;
+      max-width: 354px;
+      background: white;
+      border-radius: 20px;
+      margin: 0 auto;
+      padding: 10px 15px 20px 15px;
+      margin-bottom: 12px;
+    }
+
+    .hero-banner-box__wrapper {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-left: 12px;
+      margin-bottom: 9px;
+    }
+
+    .hero-banner-box__wrapper-price {
+      position: relative;
+    }
+
+    .hero-banner-box__wrapper-text {
+      font-weight: 600;
+      color: #000000;
+      font-size: 22px;
+      line-height: 110%;
+      letter-spacing: 5%;
+    }
+
+    .hero-banner-box__wrapper-price__text {
+      font-family: 'Big Shoulders';
+      font-weight: 800;
+      font-style: ExtraBold;
+      font-size: 36px;
+      color: #000000;
+      opacity: 70%;
+      line-height: 150%;
+      letter-spacing: 5%;
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .hero-banner-box__wrapper-price__svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+
+    .hero-banner-box__btn {
+      display: block;
+      width: 100%;
+      font-family: 'Big Shoulders';
+      font-size: 28px;
+      line-height: 150%;
+      color: white;
+      background: #DD0000;
+      box-shadow: 0px 5px 0px 0px #870001;
+      border-radius: 20px;
+      padding: 15px 50px;
+    }
+
+    .hero-time__p {
+      font-weight: bold;
+      font-size: 38px;
+      line-height: 100%;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .her-free-box {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      width: 100%;
+      max-width: 354px;
+      background: #303030;
+      border: 1px solid #FFEDAA;
+      box-shadow: 0px 0px 20px 0px #FFCD1980;
+      border-radius: 20px;
+      margin: 0 auto 30px auto;
+      padding: 8.5px 17px;
+    }
+
+    .hero-free-box__img {
+      width: 75px;
+      height: 79px;
+      object-fit: contain;
+    }
+
+    .free-box__right-wrapper__tittle {
+      font-family: 'Big Shoulders';
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 100%;
+      letter-spacing: 2%;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+
+    }
+
+    .master-class__title {
+      font-family: 'Big Shoulders';
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 120%;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .master-class__list {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto 32px auto;
+      list-style: none;
+    }
+
+    .master-class__list-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .master-class__list-item__img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .master-class__list-item__text {
+      line-height: 135%;
+    }
+
+    .master-class__btn {
+      display: block;
+      width: 100%;
+      font-family: 'Big Shoulders';
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 150%;
+      color: white;
+      background: linear-gradient(90deg, #BD0404 0%, #FF3F3F 50.96%, #BD0404 100%);
+      box-shadow: 0px 6px 0px 0px #870001;
+      border-radius: 20px;
+      padding: 30px 60px;
+      margin: 0 auto 40px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar">
+        <div class="navbar-item__left">
+          <img src="./assets/icons/work-icon.svg" alt="icon">
+          <p>
+            12-13-14-Yanvar
+          </p>
+        </div>
+        <p class="navbar-item__status">
+          Onlayn
+        </p>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section>
+        <div>
+          <h1 class="hero-title">
+            Qanday qilib qisqa vaqt ichida <br>
+            <span class="hero-title__span">
+              ingliz tilida 0 dan C1
+            </span><br>
+            darajasigacha chiqish mumkin?
+          </h1>
+
+          <div class="hero-main-box">
+            <img src="./assets/images/user-barno.png" alt="img" class="hero-main-box__img">
+            <span class="hero-main-box__span"></span>
+          </div>
+
+          <div class="hero-banner-box">
+            <div class="hero-banner-box__wrapper">
+              <div class="hero-banner-box__wrapper-price">
+                <p class="hero-banner-box__wrapper-price__text">
+                  100$
+                </p>
+
+                <svg class="hero-banner-box__wrapper-price__svg" width="71" height="38" viewBox="0 0 71 38" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M69.6786 1.33774L0.678558 36.3377" stroke="#DD0000" stroke-width="3" />
+                </svg>
+              </div>
+              <p class="hero-banner-box__wrapper-text">
+                BEPUL qatnashishga uguring
+              </p>
+            </div>
+
+            <button class="hero-banner-box__btn">
+              BEPUL QATNASHISH
+            </button>
+          </div>
+
+          <p class="hero-time__p">
+            01:59
+          </p>
+
+          <div class="her-free-box">
+            <img src="./assets/images/free.png" alt="img" class="hero-free-box__img">
+            <div class="free-box__right-wrapper">
+              <h4 class="free-box__right-wrapper__tittle">
+                qatnashuvchilarga-bonus
+              </h4>
+
+              <p class="free-box__right-wrapper__desc">
+                🎁 CONDITIONALS mavzusi bo‘yicha sovg‘a dars
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MasterClass -->
+      <section>
+        <div class="container">
+          <h2 class="master-class__title">
+            Masterklassda siz:
+          </h2>
+
+          <ul class="master-class__list">
+            <li>
+              <div class="master-class__list-item">
+                <img src="./assets/images/profit-1.png" alt="img" class="master-class__list-item__img">
+                <p class="master-class__list-item__text">
+                  Qanday qilib speakingda tez va ravon gapirishni
+                </p>
+              </div>
+              <div class="master-class__list-item" style="margin: 15px 0;">
+                <img src="./assets/images/profit-2.png" alt="img" class="master-class__list-item__img">
+                <p class="master-class__list-item__text">
+                  Qisqa vaqt ichida so'zlarni 10 barobarga eslab qolishni
+                </p>
+              </div>
+              <div class="master-class__list-item">
+                <img src="./assets/images/profit-3.png" alt="img" class="master-class__list-item__img">
+                <p class="master-class__list-item__text">
+                 0 dan speaking darajasigacha chiqishni o'rganamiz
+                </p>
+              </div>
+            </li>
+          </ul>
+
+          <button class="master-class__btn">
+            BEPUL QATNASHISH
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
