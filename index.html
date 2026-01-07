@@ -7,6 +7,7 @@
   <title>Document</title>
   <link rel="preload" href="./fonts/big-shoulder/stylesheet.css" as="style" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./fonts/big-shoulder/stylesheet.css"></noscript>
+  <link rel="preload" href="./fonts/big-shoulder/BigShoulders-ExtraBold.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" as="image" href="./assets/images/user-barno.png">
   <style>
     *,
@@ -18,10 +19,13 @@
     }
 
     body {
-      font-family: sans-serif;
+      /* use a system fallback stack while the webfont loads to reduce layout shifts */
+      font-family: 'Big Shoulders', 'Arial Black', Impact, Arial, sans-serif;
       line-height: 100%;
       background: #070707;
       color: white;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     button {
@@ -62,19 +66,21 @@
     }
 
     .hero-title {
-      font-family: 'Big Shoulders';
+      font-family: 'Big Shoulders', 'Arial Black', Impact, Arial, sans-serif;
       font-weight: 800;
-      font-size: 28px;
+      font-size: clamp(18px, 5.5vw, 28px);
       line-height: 120%;
       text-align: center;
       text-transform: uppercase;
       margin-bottom: 12px;
+      /* reserve vertical space to reduce CLS when the font swaps */
+      min-height: 3.2em;
     }
 
     .hero-title__span {
       display: inline-block;
       padding: 5px 0px;
-      font-size: 42px;
+      font-size: clamp(24px, 9vw, 42px);
       background: linear-gradient(90deg, #FFF4C6 0%, #FFCE43 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -134,16 +140,16 @@
     .hero-banner-box__wrapper-text {
       font-weight: 600;
       color: #000000;
-      font-size: 22px;
+      font-size: clamp(14px, 3.8vw, 22px);
       line-height: 110%;
       letter-spacing: 5%;
     }
 
     .hero-banner-box__wrapper-price__text {
-      font-family: 'Big Shoulders';
+      font-family: 'Big Shoulders', 'Arial Black', Impact, Arial, sans-serif;
       font-weight: 800;
       font-style: ExtraBold;
-      font-size: 36px;
+      font-size: clamp(20px, 6.5vw, 36px);
       color: #000000;
       opacity: 70%;
       line-height: 150%;
@@ -164,8 +170,8 @@
     .hero-banner-box__btn {
       display: block;
       width: 100%;
-      font-family: 'Big Shoulders';
-      font-size: 28px;
+      font-family: 'Big Shoulders', 'Arial Black', Impact, Arial, sans-serif;
+      font-size: clamp(16px, 5vw, 28px);
       line-height: 150%;
       color: white;
       background: #DD0000;
@@ -176,7 +182,7 @@
 
     .hero-time__p {
       font-weight: bold;
-      font-size: 38px;
+      font-size: clamp(18px, 6.5vw, 38px);
       line-height: 100%;
       text-align: center;
       margin-bottom: 15px;
@@ -203,9 +209,9 @@
     }
 
     .free-box__right-wrapper__tittle {
-      font-family: 'Big Shoulders';
+      font-family: 'Big Shoulders', 'Arial Black', Impact, Arial, sans-serif;
       font-weight: 800;
-      font-size: 22px;
+      font-size: clamp(14px, 4vw, 22px);
       line-height: 100%;
       letter-spacing: 2%;
       text-transform: uppercase;
@@ -214,9 +220,9 @@
     }
 
     .master-class__title {
-      font-family: 'Big Shoulders';
+      font-family: 'Big Shoulders', 'Arial Black', Impact, Arial, sans-serif;
       font-weight: 800;
-      font-size: 32px;
+      font-size: clamp(20px, 6.5vw, 32px);
       line-height: 120%;
       text-align: center;
       text-transform: uppercase;
@@ -249,9 +255,9 @@
     .master-class__btn {
       display: block;
       width: 100%;
-      font-family: 'Big Shoulders';
+      font-family: 'Big Shoulders', 'Arial Black', Impact, Arial, sans-serif;
       font-weight: 800;
-      font-size: 25px;
+      font-size: clamp(14px, 4.5vw, 25px);
       line-height: 150%;
       color: white;
       background: linear-gradient(90deg, #BD0404 0%, #FF3F3F 50.96%, #BD0404 100%);
