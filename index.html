@@ -95,7 +95,6 @@
       max-width: 214px;
       height: 222px;
       object-fit: contain;
-      /* margin: auto 0; */
       margin-left: auto;
       margin-right: auto;
       display: block;
@@ -300,8 +299,7 @@
           </h1>
 
           <div class="hero-main-box">
-            <!-- Inline SVG placeholder (fast, no network) for LCP; swapped to the real image after first paint -->
-            <img id="lcp-placeholder" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='214' height='222' viewBox='0 0 214 222'%3E%3Crect width='214' height='222' fill='%23070606'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='14' fill='%23ffffff' opacity='0.06'%3ELoading...%3C/text%3E%3C/svg%3E" alt="img" class="hero-main-box__img" width="214" height="222" loading="eager" decoding="async">
+            <img src="./assets/images/user-barno.png" alt="img" class="hero-main-box__img" width="214" height="222" loading="eager" fetchpriority="high" decoding="async">
             <span class="hero-main-box__span"></span>
           </div>
 
@@ -384,25 +382,5 @@
     </main>
   </div>
 </body>
-
-  <script>
-    // Swap inline SVG placeholder with the real image after first paint to keep LCP fast
-    (function(){
-      if (!window.requestAnimationFrame) return;
-      requestAnimationFrame(function(){
-        requestAnimationFrame(function(){
-          var img = document.getElementById('lcp-placeholder');
-          if (!img) return;
-          var real = new Image();
-          real.src = './assets/images/user-barno.png';
-          real.width = img.width || 214;
-          real.height = img.height || 222;
-          real.decoding = 'async';
-          real.loading = 'eager';
-          real.onload = function(){ img.replaceWith(real); };
-        });
-      });
-    })();
-  </script>
 
 </html>
